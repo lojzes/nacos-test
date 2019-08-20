@@ -1,6 +1,4 @@
-
-
-package com.packsofts.qn.gateway.config;
+package com.example.gateway.config;
 
 import com.example.gateway.handler.HystrixFallbackHandler;
 import org.springframework.context.annotation.Bean;
