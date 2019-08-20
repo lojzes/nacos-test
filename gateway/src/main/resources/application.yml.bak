@@ -27,3 +27,55 @@ spring:
             name: fetchIngredients
             fallbackUri: forward:/fallback
 
+
+
+###################################################
+[
+  {
+    "id":"neo_route1",
+    "uri": "lb://service-provider",
+    "predicates":[
+      {
+        "name":"Path",
+        "args":{
+          "pattern":"/demo/**"
+        }
+
+      }
+
+    ],
+    "filters":[
+      {
+        "name":"StripPrefix",
+        "args":{
+          "parts":1
+        }
+      },
+      {
+        "name":"IPForbid",
+        "args":{
+          "ip":"127.0.0.1"
+        }
+      },
+      {
+        "name":"MyTest",
+        "args":{
+          "name":"lojzes",
+          "sex":"man"
+        }
+      },
+      {
+        "name":"Token"
+      },
+      {
+        "name":"Hystrix",
+        "args":{
+          "name":"fetchIngredients",
+          "fallbackUri":"forward:/fallback"
+        }
+      }
+
+    ]
+  }
+]
+###################################################
