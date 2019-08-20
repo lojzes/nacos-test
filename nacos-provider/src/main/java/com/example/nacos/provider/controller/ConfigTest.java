@@ -16,12 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("config")
 @RefreshScope
 public class ConfigTest {
-
-    @Value("${flag:false}")
-    private boolean flag = false;
+    @Value("${env:default}")
+    private String env;
 
     @GetMapping("get")
     public Object get(){
-        return flag;
+        return env;
     }
 }
