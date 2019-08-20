@@ -17,9 +17,7 @@ import reactor.core.publisher.Mono;
 public class MyGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-
         System.out.println("_________________MyGlobalFilter______________________");
-
         return chain.filter(exchange);
     }
 

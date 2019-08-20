@@ -19,7 +19,6 @@ import reactor.core.publisher.Mono;
  * @date 2019/8/19 13:36
  */
 public class TokenFilterGatewayFilterFactory implements GatewayFilter,Ordered{
-
     private final static String token_ = "token";
 
     @Override

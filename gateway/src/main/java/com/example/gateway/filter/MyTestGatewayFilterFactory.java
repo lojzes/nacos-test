@@ -17,15 +17,12 @@ import java.util.List;
 @Component
 @Order(99)
 public class MyTestGatewayFilterFactory extends AbstractGatewayFilterFactory<MyTestGatewayFilterFactory.Config> {
-
     private static final String NAME ="name";
     private static final String SEX ="sex";
 
     public MyTestGatewayFilterFactory() {
         super(Config.class);
     }
-
-
     @Override
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
@@ -42,7 +39,6 @@ public class MyTestGatewayFilterFactory extends AbstractGatewayFilterFactory<MyT
     }
 
     public static class Config{
-
         private String name;
         private String sex;
 

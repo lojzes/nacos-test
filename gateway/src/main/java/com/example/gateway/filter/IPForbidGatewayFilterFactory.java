@@ -19,7 +19,6 @@ import java.util.List;
 @Component
 @Order(99)
 public class IPForbidGatewayFilterFactory extends AbstractGatewayFilterFactory<IPForbidGatewayFilterFactory.Config> {
-
     public static final String IP = "ip";
 
     public IPForbidGatewayFilterFactory() {
@@ -34,20 +33,14 @@ public class IPForbidGatewayFilterFactory extends AbstractGatewayFilterFactory<I
     @Override
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
-
             String hostAddress = exchange.getRequest().getRemoteAddress().getAddress().getHostAddress();
-
             System.out.println("hostAddress : " + hostAddress);
-
             System.out.println("config.getIp() : " + config.getIp());
             if(hostAddress.equals(config.getIp())){
                return chain.filter(exchange);
             }
-
             ServerHttpResponse response = exchange.getResponse();
-
             response.setStatusCode(HttpStatus.FORBIDDEN);
-
             return  response.setComplete();
         };
     }

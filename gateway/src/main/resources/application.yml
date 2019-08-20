@@ -19,10 +19,11 @@ spring:
         - Path=/demo/**
         filters:
         - StripPrefix=1
-        - name: Token
+        - IPForbid=127.0.0.1
+        - MyTest=lojzes,mans
+        - Token=123
         - name: Hystrix
           args:
             name: fetchIngredients
             fallbackUri: forward:/fallback
-        - IPForbid=0:0:0:0:0:0:0:1
-        - MyTest=lojzes,mans
+
