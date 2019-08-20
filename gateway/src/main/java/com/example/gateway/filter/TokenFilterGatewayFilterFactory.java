@@ -28,7 +28,9 @@ public class TokenFilterGatewayFilterFactory implements GatewayFilter,Ordered{
 
         String token = request.getQueryParams().getFirst(token_);
 
-        if(token != null && "token".equals(token)){
+        System.out.println("_________________TokenFilterGatewayFilterFactory______________________");
+
+        if(token != null && "123".equals(token)){
            return chain.filter(exchange);
         }else{
             ServerHttpResponse response = exchange.getResponse();

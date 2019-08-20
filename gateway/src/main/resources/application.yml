@@ -18,18 +18,11 @@ spring:
         predicates:
         - Path=/demo/**
         filters:
-        - name: StripPrefix
-          args:
-            parts: 2
+        - StripPrefix=1
         - name: Token
         - name: Hystrix
           args:
             name: fetchIngredients
             fallbackUri: forward:/fallback
-        - name: IPForbid
-          args:
-            ip: 0:0:0:0:0:0:0:1
-        - name: MyTest
-          args:
-            name: lojzes
-            sex: man
+        - IPForbid=0:0:0:0:0:0:0:1
+        - MyTest=lojzes,mans
