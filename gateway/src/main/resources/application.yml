@@ -26,3 +26,10 @@ spring:
           args:
             name: fetchIngredients
             fallbackUri: forward:/fallback
+        - name: IPForbid
+          args:
+            ip: 0:0:0:0:0:0:0:1
+        - name: MyTest
+          args:
+            name: lojzes
+            sex: man
