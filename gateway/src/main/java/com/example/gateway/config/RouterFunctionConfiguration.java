@@ -11,8 +11,6 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 
 /**
- * @author lengleng
- * @date 2018/7/5
  * 路由配置信息
  */
 @Configuration

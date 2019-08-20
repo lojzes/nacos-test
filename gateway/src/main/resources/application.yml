@@ -12,18 +12,9 @@ spring:
       discovery:
         locator:
           enabled: true
-      routes:
-      - id: neo_route
-        uri: lb://service-provider
-        predicates:
-        - Path=/demo/**
-        filters:
-        - StripPrefix=1
-        - IPForbid=127.0.0.1
-        - MyTest=lojzes,mans
-        - Token=123
-        - name: Hystrix
-          args:
-            name: fetchIngredients
-            fallbackUri: forward:/fallback
 
+nacos:
+  address: localhost:8848
+  dataId: dynamic-route
+  groupId: DEFAULT_GROUP
+  timeout: 500

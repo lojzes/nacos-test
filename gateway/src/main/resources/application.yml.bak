@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: neo_route
+        uri: lb://service-provider
+        predicates:
+        - Path=/demo/**
+        filters:
+        - StripPrefix=1
+        - IPForbid=127.0.0.1
+        - MyTest=lojzes,mans
+        - Token=123
+        - name: Hystrix
+          args:
+            name: fetchIngredients
+            fallbackUri: forward:/fallback
+
