@@ -10,7 +10,10 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 描述：非全局filter
+ * 描述： 局部filter
+ *   1、实现 GatewayFilter,Ordered
+ *   2、AbstractGatewayFilterFactory 加入spring 容器
+ *   3、配置
  *
  * @author lyyitit@foxmail.com
  * @date 2019/8/19 13:36

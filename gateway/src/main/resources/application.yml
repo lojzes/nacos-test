@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
     gateway:
       discovery:
         locator:
@@ -18,18 +18,11 @@ spring:
         predicates:
         - Path=/demo/**
         filters:
-        - StripPrefix= 1
+        - name: StripPrefix
+          args:
+            parts: 2
+        - name: Token
         - name: Hystrix
           args:
             name: fetchIngredients
             fallbackUri: forward:/fallback
-      - id: neo_route2
-          uri: lb://service-provider2
-          predicates:
-          - Path=/demo2/**
-          filters:
-          - StripPrefix= 1
-          - name: Hystrix
-            args:
-              name: fetchIngredients
-              fallbackUri: forward:/fallback

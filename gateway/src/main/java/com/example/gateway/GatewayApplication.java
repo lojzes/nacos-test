@@ -12,7 +12,6 @@ import reactor.core.publisher.Mono;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-//@RestController
 public class GatewayApplication {
 
     public static void main(String[] args) {
