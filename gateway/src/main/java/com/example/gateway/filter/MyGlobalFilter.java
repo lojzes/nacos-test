@@ -1,5 +1,6 @@
 package com.example.gateway.filter;
 
+import com.example.gateway.log.Loggers;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -17,7 +18,8 @@ import reactor.core.publisher.Mono;
 public class MyGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        System.out.println("_________________MyGlobalFilter______________________");
+        Loggers.L.info("_________________ MyGlobalFilter ______________________");
+        System.out.println("_________________ MyGlobalFilter ______________________");
         return chain.filter(exchange);
     }
 
